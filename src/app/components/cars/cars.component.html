@@ -1,0 +1,44 @@
+<button class="addCar" (click)="addCar()">
+  <p style="padding-top: 9px">Add new car</p>
+  <mat-icon style="padding-top: 7px">add</mat-icon>
+</button>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Serial number</th>
+    <th>Gear shift</th>
+    <th>Door</th>
+    <th>Seat</th>
+    <th>Bluetooth</th>
+    <th>Mp3</th>
+    <th>Navigation system</th>
+    <th>Parking sensors</th>
+    <th>Central locking</th>
+    <th>Air conditioer</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let car of cars">
+    <td>{{ car?.name }}</td>
+    <td>{{ car?.id }}</td>
+    <td>{{ car?.gearShift }}</td>
+    <td>{{ car?.door }}</td>
+    <td>{{ car?.seat }}</td>
+    <td>{{ car?.blueotooth ? "Yes" : "No" }}</td>
+    <td>{{ car?.mp ? "Yes" : "No" }}</td>
+    <td>{{ car?.navigationSystem ? "Yes" : "No" }}</td>
+    <td>{{ car?.parkingSensors ? "Yes" : "No" }}</td>
+    <td>{{ car?.centralLocking ? "Yes" : "No" }}</td>
+    <td>{{ car?.airConditioner ? "Yes" : "No" }}</td>
+    <td>
+      <button mat-icon-button (click)="edit(car)">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </td>
+    <td>
+      <button mat-icon-button (click)="delete(car.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </tr>
+</table>

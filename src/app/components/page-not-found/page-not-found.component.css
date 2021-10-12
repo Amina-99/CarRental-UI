@@ -1,0 +1,22 @@
+.page {
+  background: url("/assets/img/bg6.jpg") no-repeat center center fixed;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  color: white;
+  text-align: center;
+}
+.title {
+  margin: 0;
+  position: absolute;
+  top: 25%;
+  left: 38%;
+}
+h1 {
+  font-size: 60px;
+  font-weight: 600;
+}
+h3 {
+  margin-top: 40px;
+  font-size: 20px;
+}

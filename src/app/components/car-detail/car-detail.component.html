@@ -1,0 +1,148 @@
+<app-nav></app-nav>
+<div class="photoDetails">
+  <img src="{{ cars?.photo }}" class="carPhoto" />
+  <div class="details-1">
+    <div class="detail-1">
+      <p class="detailDesc">Name:</p>
+      <p class="detailDesc">{{ cars?.name }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Price per day:</p>
+      <p class="detailDesc">{{ cars?.pricePerDay }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Seat:</p>
+      <p class="detailDesc">{{ cars?.seat }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Gear shift:</p>
+      <p class="detailDesc">{{ cars?.gearShift }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Door:</p>
+      <p class="detailDesc">{{ cars?.door }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Bluetooth:</p>
+      <p class="detailDesc">{{ cars?.gearShift }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Mp3:</p>
+      <p class="detailDesc">{{ cars?.mp ? "Yes" : "No" }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Navigation system:</p>
+      <p class="detailDesc">{{ cars?.navigationSystem ? "Yes" : "No" }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Parking sensors:</p>
+      <p class="detailDesc">{{ cars?.parkingSensors ? "Yes" : "No" }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Central locking:</p>
+      <p class="detailDesc">{{ cars?.centralLocking ? "Yes" : "No" }}</p>
+    </div>
+    <div class="detail-1">
+      <p>Air conditioner:</p>
+      <p class="detailDesc">{{ cars?.airContioner ? "Yes" : "No" }}</p>
+    </div>
+  </div>
+</div>
+<div class="carDetailContainer">
+  <div class="section-2">
+    <div class="reservationTitle">
+      <h4 style="font-weight: 500">RESERVE YOUR VEHICLE</h4>
+    </div>
+    <div class="attention">
+      <mat-icon aria-hidden="false" class="icon">announcement</mat-icon>
+      <p>
+        Please check the details before booking your vehicle. Payment and
+        signing of the contract is done when taking over the vehicle. If you
+        have any doubts please contact us.
+      </p>
+    </div>
+    <form
+      [formGroup]="newReservationForm"
+      class="wholeForm"
+      (ngSubmit)="submit()"
+    >
+      <mat-form-field appearance="outline">
+        <mat-label>Enter your name and surname</mat-label>
+        <input
+          matInput
+          placeholder="Full name"
+          formControlName="customer"
+          name="customerName"
+        />
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+          <input
+            matStartDate
+            formControlName="start"
+            placeholder="Start date"
+            [class.is-invalid]="
+              newReservationForm.controls['start'].invalid &&
+              newReservationForm.controls['start'].touched
+            "
+          />
+          <input
+            matEndDate
+            formControlName="end"
+            placeholder="End date"
+            [class.is-invalid]="
+              newReservationForm.controls['end'].invalid &&
+              newReservationForm.controls['end'].touched
+            "
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker color="#ebad00"></mat-date-range-picker>
+        <mat-error
+          *ngIf="
+            newReservationForm.controls.start.hasError('matStartDateInvalid')
+          "
+          >Invalid start date</mat-error
+        >
+        <mat-error
+          *ngIf="newReservationForm.controls.end.hasError('matEndDateInvalid')"
+          >Invalid end date</mat-error
+        >
+        <mat-error
+          *ngIf="
+            newReservationForm.controls['start'].invalid &&
+            newReservationForm.controls['start'].touched
+          "
+        >
+          <span *ngIf="searchCarForm.controls['start'].errors?.required"
+            >Start date is required.</span
+          >
+        </mat-error>
+        <mat-error
+          *ngIf="
+            newReservationForm.controls['end'].invalid &&
+            newReservationForm.controls['end'].touched
+          "
+        >
+          <span *ngIf="newReservationForm.controls['end'].errors?.required"
+            >End date is required.</span
+          >
+        </mat-error>
+      </mat-form-field>
+      <div class="buttons">
+        <button class="reserveButton" type="submit" [disabled]="!isLoggedIn">
+          RESERVE VEHICLE
+        </button>
+        <div #paypal></div>
+      </div>
+    </form>
+  </div>
+  <div class="reservedDateContainer">
+    <h3 class="reservedDate-title">RESERVED DATE</h3>
+    <div *ngFor="let carReservation of cars?.reservations">
+      {{ carReservation?.startDate | date: "dd.MM.yyyy" }} -
+      {{ carReservation?.endDate | date: "dd.MM.yyyy" }}
+    </div>
+  </div>
+</div>

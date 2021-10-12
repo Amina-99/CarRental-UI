@@ -1,0 +1,54 @@
+mat-sidenav {
+  width: 200px;
+  background-color: rgb(44, 44, 38);
+  color: #ebad00;
+  padding: 16px;
+  text-align: center;
+}
+mat-sidenav-container {
+  height: calc(100vh -65px);
+}
+.content {
+  height: calc(100vh-98px);
+  margin: 16px;
+  margin-left: 32px;
+}
+button {
+  border: none;
+  background-color: rgb(44, 44, 38);
+  color: #ebad00;
+}
+.button-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.button {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+button:active {
+  background: rgb(83, 83, 73);
+}
+button:focus {
+  background: rgb(83, 83, 73);
+}
+.logoutContainer {
+  bottom: 0;
+}
+.iconButtons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 150px;
+}
+p {
+  margin-left: 15px;
+  margin-top: 10px;
+}
+mat-icon {
+  margin-top: 5px;
+}

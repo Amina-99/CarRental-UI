@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap");
+body {
+  height: 100%;
+  width: 100%;
+  font-family: "Open Sans Condensed", sans-serif;
+}
+.naslovna {
+  height: 480px;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  background-image: url("/assets/img/road1.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.wholeNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(44, 43, 43);
+  color: #ebad00;
+}
+.menu-link {
+  text-decoration: none;
+  color: #ebad00;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: large;
+}
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-1 {
+  float: left;
+}
+
+.list-1 a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  margin-left: 40px;
+}
+content {
+  position: absolute;
+  left: 50px;
+  background: rgba(78, 78, 78, 0.5); /* Black background with 0.5 opacity */
+  color: #faf8f8;
+  height: 100%;
+  width: 400px;
+}
+.roundTitle {
+  margin-top: 150px;
+  margin-left: 25px;
+}
+.title {
+  font-size: 45px;
+  font-family: "Open Sans Condensed", sans-serif;
+  line-height: 80%;
+  font-weight: 200;
+}
+.subtitle {
+  font-family: "Open Sans Condensed", sans-serif;
+  margin-left: 25px;
+  font-size: large;
+}
+.offer {
+  margin-left: 25px;
+  background-color: #ebad00;
+  color: rgb(44, 43, 43);
+  width: 130px;
+  font-size: large;
+  font-weight: 400;
+  border: none;
+  height: 30px;
+  margin-top: 15px;
+}
+.signIn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.signIn {
+  margin-right: 50px;
+}
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-left: 50px;
+}
+.login,
+.register {
+  margin-left: 25px;
+}
+.section-1 {
+  display: flex;
+  flex-direction: column;
+}
+.detail-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  background-color: rgba(240, 240, 240, 0.8);
+  color: #181818;
+  margin-bottom: 2px;
+  font-weight: 500;
+  padding-right: 15px;
+  padding-left: 15px;
+  padding-top: 7px;
+}
+.details-1 {
+  margin-top: 50px;
+  margin-right: 100px;
+}
+.photoDetails {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 25px;
+}
+.carPhoto {
+  height: 430px;
+  width: 670px;
+}
+.carDetailContainer {
+  display: flex;
+  justify-content: space-around;
+}
+.section-2 {
+  display: flex;
+  flex-direction: column;
+  background-color: #ebad00;
+  width: 650px;
+  align-items: center;
+  margin-bottom: 50px;
+  height: 450px;
+  border-radius: 5px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+mat-form-field {
+  width: 600px;
+}
+mat-icon {
+  color: #ebad00;
+}
+.attention {
+  background-color: rgb(44, 43, 43);
+  color: #ebad00;
+  display: flex;
+  flex-direction: row;
+  width: 600px;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 10px;
+}
+.reserveButton {
+  border: none;
+  background-color: rgb(44, 43, 43);
+  color: #ebad00;
+  padding: 10px;
+  border-radius: 5px;
+}
+.buttons {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.reservationTitle {
+  margin-top: 10px;
+}
+.reservedDateContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(44, 43, 43);
+  color: #ebad00;
+  width: 300px;
+  height: 300px;
+  text-align: center;
+  margin-right: 95px;
+}

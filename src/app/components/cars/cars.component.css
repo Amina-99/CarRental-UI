@@ -1,0 +1,26 @@
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.addCar {
+  float: right;
+  border: none;
+  background-color: #ebad00;
+  color: rgb(65, 60, 60);
+  height: 40px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: row;
+}

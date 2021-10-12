@@ -1,0 +1,17 @@
+.iconVisiblity {
+  border: none;
+  background-color: white;
+}
+form {
+  display: flex;
+  flex-direction: column;
+}
+.loginButton {
+  width: 250px;
+  border-radius: 5px;
+  height: 50px;
+  background-color: #ebad00;
+  color: rgb(44, 43, 43);
+  border: none;
+  font-weight: 500;
+}

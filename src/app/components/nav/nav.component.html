@@ -1,0 +1,33 @@
+<nav class="navigationBar">
+  <div class="wholeNav">
+    <div class="menu">
+      <ul class="list">
+        <li class="list-1"><a href="#home" class="menu-link">HOME</a></li>
+        <li class="list-1"><a href="#news" class="menu-link">CARS</a></li>
+        <li class="list-1">
+          <a href="#contact" class="menu-link">ABOUT US</a>
+        </li>
+        <li class="list-1"><a href="#about" class="menu-link">CONTACT</a></li>
+      </ul>
+    </div>
+    <div class="signIn" *ngIf="user != null">
+      <p style="margin-top: 15px">Hello {{ user.username }}</p>
+      <div class="login">
+        <mat-icon aria-hidden="false" class="icon">logout</mat-icon>
+        <button class="menu-link" (click)="logout()">LOGOUT</button>
+      </div>
+    </div>
+    <div class="signIn" *ngIf="user == null">
+      <div class="login">
+        <mat-icon aria-hidden="false" class="icon">login</mat-icon>
+        <button class="menu-link" (click)="openDialog()">LOGIN</button>
+      </div>
+      <div class="register">
+        <mat-icon aria-hidden="false" class="icon">person_add</mat-icon>
+        <button class="menu-link" (click)="openDialogRegister()">
+          REGISTER
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

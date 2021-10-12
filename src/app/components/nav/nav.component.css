@@ -1,0 +1,44 @@
+.wholeNav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(44, 43, 43);
+  color: #ebad00;
+}
+.menu-link {
+  text-decoration: none;
+  color: #ebad00;
+  font-family: "Open Sans Condensed", sans-serif;
+  font-size: large;
+  border: none;
+  background-color: rgb(44, 43, 43);
+}
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.list-1 {
+  float: left;
+}
+
+.list-1 a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  margin-left: 40px;
+}
+.login,
+.register {
+  margin-left: 25px;
+  display: flex;
+  align-items: center;
+}
+.signIn {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-right: 50px;
+}

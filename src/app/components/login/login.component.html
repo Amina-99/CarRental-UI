@@ -1,0 +1,73 @@
+<h4>Login</h4>
+<div class="container">
+  <form
+    [formGroup]="loginForm"
+    class="d-flex flex-column w-100"
+    (ngSubmit)="submit($event)"
+  >
+    <mat-form-field class="example-full-width" appearance="outline">
+      <mat-label>Username</mat-label>
+      <input
+        type="text"
+        aria-label="Number"
+        matInput
+        class="w-100"
+        formControlName="username"
+        [class.is-invalid]="
+          loginForm.controls['username'].invalid &&
+          loginForm.controls['username'].touched
+        "
+        required
+      />
+      <mat-error
+        *ngIf="
+          loginForm.controls['username'].invalid &&
+          loginForm.controls['username'].touched
+        "
+      >
+        <span *ngIf="loginForm.controls['username'].errors?.required"
+          >This field is required.</span
+        >
+      </mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter your password</mat-label>
+      <input
+        matInput
+        class="w-100"
+        [type]="hide ? 'password' : 'text'"
+        formControlName="password"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="hide = !hide"
+        [attr.aria-label]="'Hide password'"
+        [attr.aria-pressed]="hide"
+      >
+        <mat-icon class="material-icons-outlined">{{
+          hide ? "visibility_off" : "visibility"
+        }}</mat-icon>
+      </button>
+    </mat-form-field>
+    <div class="d-flex flex-row" style="margin-bottom: 10px">
+      <span>Don`t have an account?</span>
+      <button
+        class="registerButton"
+        color="primary"
+        (click)="routeToRegister()"
+      >
+        Register
+      </button>
+    </div>
+    <button
+      mat-raised-button
+      color="primary"
+      type="submit"
+      (click)="submit($event)"
+      class="loginButton"
+    >
+      Log in
+    </button>
+  </form>
+</div>

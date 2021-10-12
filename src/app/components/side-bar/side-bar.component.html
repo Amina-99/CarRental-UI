@@ -1,0 +1,40 @@
+<mat-sidenav-container>
+  <mat-sidenav mode="side" opened [fixedInViewport]="true">
+    <div class="helloMessage">
+      <img src="/assets/img/person.png" style="height: 50px; width: 50px" />
+      <h5>Hello, Admin</h5>
+    </div>
+    <div class="iconButtons">
+      <div class="button-1">
+        <button class="button" (click)="getUsers()">
+          <mat-icon>person</mat-icon>
+          <p>Customers</p>
+        </button>
+      </div>
+      <div class="button-1">
+        <button class="button" (click)="getCars()">
+          <mat-icon>directions_car</mat-icon>
+          <p>Cars</p>
+        </button>
+      </div>
+      <div class="button-1">
+        <button class="button" (click)="getReservation()">
+          <mat-icon>event_note</mat-icon>
+          <p>Reservation</p>
+        </button>
+      </div>
+    </div>
+    <div class="logoutContainer">
+      <hr />
+      <div class="login">
+        <mat-icon aria-hidden="false" class="icon">logout</mat-icon>
+        <button class="menu-link" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

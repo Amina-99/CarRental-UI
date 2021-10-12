@@ -1,0 +1,251 @@
+<app-nav></app-nav>
+<div class="naslovna">
+  <div class="content">
+    <div class="roundTitle">
+      <p class="title">Rent a car</p>
+      <p class="title">at lowast price</p>
+    </div>
+    <p class="subtitle">Book your car in an easy and fast way.</p>
+    <button class="offer">SEE OFFER</button>
+  </div>
+  <div class="formSearch">
+    <h4 class="selectData">SELECT DATE</h4>
+    <form [formGroup]="searchCarForm">
+      <mat-form-field appearance="outline">
+        <mat-label>Enter a date range</mat-label>
+        <mat-date-range-input [rangePicker]="picker" [min]="minDate">
+          <input
+            matStartDate
+            formControlName="start"
+            placeholder="Start date"
+            [class.is-invalid]="
+              searchCarForm.controls['start'].invalid &&
+              searchCarForm.controls['start'].touched
+            "
+          />
+          <input
+            matEndDate
+            formControlName="end"
+            placeholder="End date"
+            [class.is-invalid]="
+              searchCarForm.controls['end'].invalid &&
+              searchCarForm.controls['end'].touched
+            "
+          />
+        </mat-date-range-input>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-date-range-picker #picker color="#ebad00"></mat-date-range-picker>
+        <mat-error
+          *ngIf="searchCarForm.controls.start.hasError('matStartDateInvalid')"
+          >Invalid start date</mat-error
+        >
+        <mat-error
+          *ngIf="searchCarForm.controls.end.hasError('matEndDateInvalid')"
+          >Invalid end date</mat-error
+        >
+        <mat-error
+          *ngIf="
+            searchCarForm.controls['start'].invalid &&
+            searchCarForm.controls['start'].touched
+          "
+        >
+          <span *ngIf="searchCarForm.controls['start'].errors?.required"
+            >Start date is required.</span
+          >
+        </mat-error>
+        <mat-error
+          *ngIf="
+            searchCarForm.controls['end'].invalid &&
+            searchCarForm.controls['end'].touched
+          "
+        >
+          <span *ngIf="searchCarForm.controls['end'].errors?.required"
+            >End date is required.</span
+          >
+        </mat-error>
+      </mat-form-field>
+    </form>
+    <div class="buttons">
+      <button class="searchButton" (click)="getDateCars()">
+        SEARCH VEHICLE
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="wholeContent">
+  <div class="introduction">
+    <div class="welcomeMessage">
+      <h1 class="message">Rent yout favorite cars</h1>
+      <p class="text">
+        We provide our clients with quality service and affordable car rental
+        prices. All categories of vehicles are represented in our fleet, so the
+        client can book the car that best suits the client's needs. Many years
+        of experience allow us to respond quickly and efficiently to customer
+        inquiries. Rental prices include additional free services and services
+        so clients get the most value for money. We have won the highest
+        accolades from our partners for the quality of service and service we
+        provide. We provide every client with a smile with a safe and
+        professional car rental service, and with good reason we have a large
+        number of regular customers. Whether you are traveling for vacation or
+        business, we are sure that you can find a reliable and secure partner in
+        us.
+      </p>
+    </div>
+  </div>
+  <div class="listOfCars">
+    <div
+      *ngFor="
+        let car of cars
+          | paginate
+            : { itemsPerPage: 6, currentPage: pageNumber, totalItems: Count }
+      "
+      class="carList"
+    >
+      <div class="firstPart">
+        <h2 class="carName">{{ car?.name }}</h2>
+        <div class="firstPart-icons">
+          <div class="rowData">
+            <img src="/assets/img/gearshift.png" class="iconCar" />
+            <p class="gearshiftDB">{{ car?.gearShift }}</p>
+          </div>
+          <div class="rowData">
+            <img src="/assets/img/seat.png" class="iconCar" />
+            <p class="seatDB">{{ car?.seat }} Seats</p>
+          </div>
+        </div>
+      </div>
+      <div class="priceCar">
+        <p class="priceDB"></p>
+        <p>{{ car?.pricePerDay }} KM/Day</p>
+      </div>
+      <div class="secondPart">
+        <img src="{{ car?.photo }}" class="photoCar" />
+        <button type="button" (click)="onSelect(car)" class="buttonDetails">
+          DETAILS
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="paginator">
+    <pagination-controls
+      (pageChange)="onPageChange($event)"
+    ></pagination-controls>
+  </div>
+</div>
+<div class="container">
+  <h1 class="titleSection">Quality and reliability cars</h1>
+  <div class="section">
+    <div class="section-1">
+      <span class="circle"
+        ><mat-icon class="icon-span">thumb_up</mat-icon></span
+      >
+      <span class="circle"
+        ><mat-icon class="icon-span"> account_balance_wallet </mat-icon></span
+      >
+      <span class="circle"
+        ><mat-icon class="icon-span"> support_agent </mat-icon></span
+      >
+    </div>
+    <div class="section-2">
+      <div class="underSection-1">
+        <h1>Outstanding Services</h1>
+        <p>
+          The quality, reliability, satisfaction and trust of our clients is the
+          first and foremost goal of our business. Make sure that we really
+          stand behind our own words.
+        </p>
+      </div>
+      <div class="underSection-2">
+        <h1>Name for Quality Vehicles</h1>
+        <p>
+          All vehicles in our fleet are brand new with the highest quality
+          equipment packages. Reliability and quality is what we offer to our
+          esteemed customers.
+        </p>
+      </div>
+      <div class="underSection-3">
+        <h1>24 Hours Support</h1>
+        <p>
+          Our services are available 24 hours a day in case of any unforeseen
+          situation. Contact us on the phone numbers on our website.
+        </p>
+      </div>
+    </div>
+    <div class="section-3">
+      <span class="circle"
+        ><mat-icon class="icon-span">location_searching</mat-icon></span
+      >
+      <span class="circle"
+        ><mat-icon class="icon-span">
+          <span class="material-icons-outlined"> attach_money </span>
+        </mat-icon></span
+      >
+    </div>
+    <div class="section-4">
+      <div class="underSection-4">
+        <h1>GPS on Every Vehicle</h1>
+        <p>
+          In most of our vehicles, the navigation system is the standard
+          equipment of the vehicle. In addition, it is possible to additionally
+          rent a navigation system.
+        </p>
+      </div>
+      <div class="underSection-5">
+        <h1>All-Inclusive Pricing</h1>
+        <p>
+          We offer transparent and all-inclusive pricing. When you book a car
+          rental with us, the price includes unlimited mileage, necessary
+          insurance and local taxes.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<iframe
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2860.384958998955!2d17.90115651551547!3d44.19913727910624!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475ee2423fa0fbaf%3A0xd5caf50678c02195!2sPolitehni%C4%8Dki%20fakultet%20Univerziteta%20u%20Zenici!5e0!3m2!1sen!2sba!4v1632237553540!5m2!1sen!2sba"
+  width="600"
+  height="450"
+  style="border: 0; width: 100%"
+  allowfullscreen=""
+  loading="lazy"
+></iframe>
+<div class="lastSection">
+  <div class="lastSection-1">
+    <div class="lastUndersection-1">
+      <mat-icon> car_rental </mat-icon>
+      <p class="nameCompany">Car rental</p>
+    </div>
+    <div class="lastUndersection-2">
+      <div class="office">
+        <h4 class="office-1">Office:</h4>
+        <h5 class="office-2">+387 00 000 000</h5>
+      </div>
+      <div class="office">
+        <h4 class="office-1">Support:</h4>
+        <h5 class="support-2">+387 61 111 111</h5>
+      </div>
+      <div class="office">
+        <h4 class="office-1">Email:</h4>
+        <h5 class="email-2">car.rental@size.ba</h5>
+      </div>
+    </div>
+    <div class="lastUndersection-3">
+      <ul class="link">
+        <li><a href="#home" class="link-1">HOME</a></li>
+        <li><a href="#news" class="link-1">CARS</a></li>
+        <li><a href="#contact" class="link-1">ABOUT US</a></li>
+        <li><a href="#about" class="link-1">CONTACT</a></li>
+      </ul>
+    </div>
+    <div class="lastUndersection-4">
+      <img src="/assets/img/phone.png" class="icon-phone" />
+      <img src="/assets/img/viber.png" class="icon-phone" />
+      <img src="/assets/img/whts.png" class="icon-phone" />
+    </div>
+  </div>
+  <div class="line">
+    <hr />
+    <p>&copy; 2020 Product by Amina | Rental Car - All Rights Reserved</p>
+  </div>
+</div>

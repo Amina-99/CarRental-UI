@@ -1,0 +1,22 @@
+<table>
+  <tr>
+    <th>Customer name</th>
+    <th>Car name</th>
+    <th>Start date</th>
+    <th>End date</th>
+    <th>Date range</th>
+    <th>Delete</th>
+  </tr>
+  <tr *ngFor="let reservation of reservations">
+    <td>{{ reservation?.customerName }}</td>
+    <td>{{ reservation?.carName }}</td>
+    <td>{{ reservation?.startDate | date: "dd.MM.YYYY" }}</td>
+    <td>{{ reservation?.endDate | date: "dd.MM.YYYY" }}</td>
+    <td>{{ reservation?.dateRange }}</td>
+    <td>
+      <button mat-icon-button (click)="delete(reservation.id)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </tr>
+</table>

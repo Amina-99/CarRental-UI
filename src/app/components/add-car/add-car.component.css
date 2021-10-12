@@ -1,0 +1,13 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+#example-radio-group-label {
+  margin-top: 20px;
+}
+mat-form-field {
+  width: 450px;
+}
+mat-dialog-content {
+  height: 560px;
+}

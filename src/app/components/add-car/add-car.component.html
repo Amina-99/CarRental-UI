@@ -1,0 +1,129 @@
+<mat-dialog-content>
+  <form [formGroup]="addForm" ngSubmit="addCar()">
+    <label id="example-radio-group-label">Car name</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Enter car name</mat-label>
+      <input
+        matInput
+        placeholder="Full name"
+        formControlName="carName"
+        name="customerName"
+      />
+    </mat-form-field>
+    <label id="example-radio-group-label">Gear shift</label>
+    <mat-radio-group
+      aria-label="Gear shift"
+      name="gearShift"
+      formControlName="gearShift"
+    >
+      <mat-radio-button value="manual" style="margin-right: 20px"
+        >Manual</mat-radio-button
+      >
+      <mat-radio-button value="automatic">Automatic</mat-radio-button>
+    </mat-radio-group>
+    <label id="example-radio-group-label">Door</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Door</mat-label>
+      <input
+        matInput
+        placeholder="Full name"
+        formControlName="door"
+        name="door"
+        required
+      />
+    </mat-form-field>
+    <label id="example-radio-group-label">Seat</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Seat</mat-label>
+      <input
+        matInput
+        placeholder="Full name"
+        formControlName="seat"
+        name="seat"
+        required
+      />
+    </mat-form-field>
+    <label id="example-radio-group-label">Photo link</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Photo link</mat-label>
+      <input
+        matInput
+        placeholder="Full name"
+        formControlName="photo"
+        name="photo"
+        required
+      />
+    </mat-form-field>
+    <label id="example-radio-group-label">Price per day</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Price per day</mat-label>
+      <input
+        matInput
+        placeholder="Full name"
+        formControlName="pricePerDay"
+        name="pricePerDay"
+        required
+      />
+    </mat-form-field>
+    <label id="example-radio-group-label">Bluetooth</label>
+    <mat-radio-group aria-label="Bluetooth" formControlName="blueotooth">
+      <mat-radio-button value="true" style="margin-right: 20px"
+        >Yes</mat-radio-button
+      >
+      <mat-radio-button value="false">No</mat-radio-button>
+    </mat-radio-group>
+    <label id="example-radio-group-label">Navigation system</label>
+    <mat-radio-group
+      aria-label="Navigation system"
+      formControlName="navigationSystem"
+    >
+      <mat-radio-button value="true" style="margin-right: 20px"
+        >Yes</mat-radio-button
+      >
+      <mat-radio-button value="false">No</mat-radio-button>
+    </mat-radio-group>
+    <label id="example-radio-group-label">MP3</label>
+    <mat-radio-group aria-label="MP3" formControlName="mp" name="mp">
+      <mat-radio-button value="true" style="margin-right: 20px"
+        >Yes</mat-radio-button
+      >
+      <mat-radio-button value="false">No</mat-radio-button>
+    </mat-radio-group>
+    <label id="example-radio-group-label">Parking sensors</label>
+    <mat-radio-group
+      aria-label="Parking sensors"
+      formControlName="parkingSensors"
+      name="parkingSensors"
+    >
+      <mat-radio-button value="true" style="margin-right: 20px"
+        >Yes</mat-radio-button
+      >
+      <mat-radio-button value="false">No</mat-radio-button>
+    </mat-radio-group>
+    <label id="example-radio-group-label">Central locking</label>
+    <mat-radio-group
+      aria-label="Central locking"
+      formControlName="centralLocking"
+      name="centralLocking"
+    >
+      <mat-radio-button value="true" style="margin-right: 20px"
+        >Yes</mat-radio-button
+      >
+      <mat-radio-button value="false">No</mat-radio-button>
+    </mat-radio-group>
+    <label id="example-radio-group-label">Air conditioner</label>
+    <mat-radio-group
+      aria-label="Air conditioner"
+      formControlName="airConditioner"
+      name="airConditioner"
+    >
+      <mat-radio-button value="true" style="margin-right: 20px"
+        >Yes</mat-radio-button
+      >
+      <mat-radio-button value="false">No</mat-radio-button>
+    </mat-radio-group>
+  </form>
+  <button type="submit" (click)="addCar()" class="editButton">
+    Save changes
+  </button>
+</mat-dialog-content>
