@@ -100,6 +100,28 @@
       >
       <mat-radio-button value="false">No</mat-radio-button>
     </mat-radio-group>
+    <label id="example-radio-group-label">Photo link</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Photo link</mat-label>
+      <input
+        matInput
+        placeholder="Full name"
+        formControlName="photo"
+        name="photo"
+        required
+      />
+    </mat-form-field>
+    <label id="example-radio-group-label">Price per day</label>
+    <mat-form-field appearance="outline">
+      <mat-label>Price per day</mat-label>
+      <input
+        matInput
+        placeholder="Full name"
+        formControlName="pricePerDay"
+        name="pricePerDay"
+        required
+      /> 
+    </mat-form-field>
   </form>
   <button type="submit" (click)="saveChanges()" class="editButton">
     Save changes

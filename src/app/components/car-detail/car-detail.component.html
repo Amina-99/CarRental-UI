@@ -56,8 +56,8 @@
     <div class="attention">
       <mat-icon aria-hidden="false" class="icon">announcement</mat-icon>
       <p>
-        Please check the details before booking your vehicle. Payment and
-        signing of the contract is done when taking over the vehicle. If you
+        Please check the details before booking your vehicle. booking and payment of the
+        reservation is possible only if you are logged in. If you
         have any doubts please contact us.
       </p>
     </div>
@@ -131,7 +131,7 @@
         </mat-error>
       </mat-form-field>
       <div class="buttons">
-        <button class="reserveButton" type="submit" [disabled]="!isLoggedIn">
+        <button class="reserveButton" type="submit" [disabled]="!isLoggedIn" (click)="errorMessage()">
           RESERVE VEHICLE
         </button>
         <div #paypal></div>

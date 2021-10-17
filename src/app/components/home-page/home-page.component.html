@@ -1,5 +1,5 @@
 <app-nav></app-nav>
-<div class="naslovna">
+<div class="naslovna" id="home">
   <div class="content">
     <div class="roundTitle">
       <p class="title">Rent a car</p>
@@ -93,7 +93,7 @@
       </p>
     </div>
   </div>
-  <div class="listOfCars">
+  <div class="listOfCars" id="cars">
     <div
       *ngFor="
         let car of cars
@@ -133,7 +133,7 @@
     ></pagination-controls>
   </div>
 </div>
-<div class="container">
+<div class="container" id="aboutUs">
   <h1 class="titleSection">Quality and reliability cars</h1>
   <div class="section">
     <div class="section-1">
@@ -210,7 +210,7 @@
   allowfullscreen=""
   loading="lazy"
 ></iframe>
-<div class="lastSection">
+<div class="lastSection" id="contact">
   <div class="lastSection-1">
     <div class="lastUndersection-1">
       <mat-icon> car_rental </mat-icon>
@@ -233,9 +233,9 @@
     <div class="lastUndersection-3">
       <ul class="link">
         <li><a href="#home" class="link-1">HOME</a></li>
-        <li><a href="#news" class="link-1">CARS</a></li>
-        <li><a href="#contact" class="link-1">ABOUT US</a></li>
-        <li><a href="#about" class="link-1">CONTACT</a></li>
+        <li><a href="#cars" class="link-1">CARS</a></li>
+        <li><a href="#aboutUs" class="link-1">ABOUT US</a></li>
+        <li><a href="#contact" class="link-1">CONTACT</a></li>
       </ul>
     </div>
     <div class="lastUndersection-4">

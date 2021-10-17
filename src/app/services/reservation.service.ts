@@ -13,12 +13,12 @@ export class ReservationService {
 
   getAllReservation(): Observable<any> {
     return this.httpClient.get(
-      this.apiUrl + '/api/Reservation/allReservations'
+      this.apiUrl + '/api/Reservation/all-reservations'
     );
   }
   getAllReservationForUser(): Observable<any> {
     return this.httpClient.get(
-      this.apiUrl + 'api/Reservation/reservationsUser'
+      this.apiUrl + 'api/Reservation/reservations-user'
     );
   }
   createNewReservation(reservation: ReservationWrite) {

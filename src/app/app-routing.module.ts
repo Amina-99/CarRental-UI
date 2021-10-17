@@ -5,6 +5,7 @@ import { CarDetailComponent } from './components/car-detail/car-detail.component
 import { CarsComponent } from './components/cars/cars.component';
 import { HomeAdminComponent } from './components/home-admin/home-admin.component';
 import { HomePageComponent } from './components/home-page/home-page.component';
+import { IncomeAnaycitsComponent } from './components/income-anaycits/income-anaycits.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ReservationComponent } from './components/reservation/reservation.component';
 
@@ -15,6 +16,10 @@ const routes: Routes = [
     path: 'admin',
     component: HomeAdminComponent,
     children: [
+      {
+        path: 'analytics',
+        component: IncomeAnaycitsComponent,
+      },
       {
         path: 'reservations',
         component: ReservationComponent,

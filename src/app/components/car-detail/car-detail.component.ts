@@ -81,6 +81,7 @@ export class CarDetailComponent implements OnInit {
       this.snackBar.open(invalidFormMessage, action, { duration: 4000 });
     }
   }
+
   setupPayPal() {
     let startDate = moment(this.field.start.value);
     let endDate = moment(this.field.end.value);

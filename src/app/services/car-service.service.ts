@@ -20,18 +20,18 @@ export class CarServiceService {
   }
   getCarsPage(): Observable<any> {
     return this.httpClient.get<PageResult<CarRead>>(
-      this.apiUrl + '/api/Cars/AllCars'
+      this.apiUrl + '/api/Cars/all-cars'
     );
   }
   getPageChange(pageNumber: number) {
     return this.httpClient.get<PageResult<CarRead>>(
-      this.apiUrl + '/api/Cars/AllCars?page=' + pageNumber
+      this.apiUrl + '/api/Cars/all-cars?page=' + pageNumber
     );
   }
   getDatesCars(pageNumber: number, startDate: string, endDate: string) {
     return this.httpClient.get<PageResult<CarRead>>(
       this.apiUrl +
-        '/api/Cars/AllCars?page=' +
+        '/api/Cars/all-cars?page=' +
         pageNumber +
         '&startDate=' +
         startDate +
@@ -44,7 +44,7 @@ export class CarServiceService {
   }
   editCar(car: any): Observable<any> {
     return this.httpClient.put(
-      this.apiUrl + '/api/Cars/editing/' + this.carForEdit.Id,
+      this.apiUrl + '/api/Cars/editing/' + this.carForEdit.id,
       car
     );
   }

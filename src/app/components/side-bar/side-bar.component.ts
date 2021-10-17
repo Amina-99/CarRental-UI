@@ -24,8 +24,8 @@ export class SideBarComponent implements OnInit {
   getCars() {
     this.router.navigate(['cars'], { relativeTo: this.route });
   }
-  getUsers() {
-    this.router.navigate(['users'], { relativeTo: this.route });
+  getChart() {
+    this.router.navigate(['analytics'], { relativeTo: this.route });
   }
   logout() {
     this.authService.logout();

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { CarRead } from 'src/app/models/CarRead';
 import { CarWrite } from 'src/app/models/CarWrite';
 import { CarServiceService } from 'src/app/services/car-service.service';
@@ -13,7 +15,12 @@ export class EditCarComponent implements OnInit {
   cars: CarWrite[];
   editForm!: FormGroup;
   selectedCarId: number;
-  constructor(private fb: FormBuilder, private _service: CarServiceService) {}
+  constructor(
+    private fb: FormBuilder,
+    private _service: CarServiceService,
+    private snackBar: MatSnackBar,
+    private dialog: MatDialog
+  ) {}
 
   ngOnInit() {
     console.log(this._service.carForEdit);
@@ -47,9 +54,14 @@ export class EditCarComponent implements OnInit {
         this._service.carForEdit.airConditioner.toString(),
         Validators.required,
       ],
+      pricePerDay: [
+        this._service.carForEdit.pricePerDay.toString(),
+        Validators.required,
+      ],
+      photo: [this._service.carForEdit.photo.toString(), Validators.required],
     });
   }
-  get filed() {
+  get field() {
     return this.editForm.controls;
   }
   onSelectUser(car: CarWrite) {}
@@ -59,18 +71,30 @@ export class EditCarComponent implements OnInit {
     let action: string = 'Close';
     let invalidFormMessage: string = 'Form is not filled correctly.';
     if (this.editForm.valid) {
-      this._service.editCar({
-        carName: this.filed.carName,
-        gearShift: this.filed.gearShift,
-        blueotooth: this.filed.blueotooth,
-        door: this.filed.door,
-        seat: this.filed.seat,
-        navigationSystem: this.filed.navigationSystem,
-        mp: this.filed.mp,
-        parkingSensors: this.filed.parkingSensors,
-        centralLocking: this.filed.centralLocking,
-        airConditioner: this.filed.airConditioner,
-      });
+      this._service
+        .editCar({
+          name: this.field.carName.value,
+          gearShift: this.field.gearshift.value,
+          seat: Number(JSON.parse(this.field.seat.value)),
+          door: Number(JSON.parse(this.field.door.value)),
+          navigationSystem: Boolean(
+            JSON.parse(this.field.navigationSystem.value)
+          ),
+          mp: Boolean(JSON.parse(this.field.mp.value)),
+          airConditioner: Boolean(JSON.parse(this.field.airConditioner.value)),
+          centralLocking: Boolean(JSON.parse(this.field.centralLocking.value)),
+          parkingSensors: Boolean(JSON.parse(this.field.parkingSensors.value)),
+          bluetooth: Boolean(JSON.parse(this.field.blueotooth.value)),
+          photo: this.field.photo.value,
+          pricePerDay: Number(JSON.parse(this.field.pricePerDay.value)),
+        })
+        .subscribe((_) => {
+          this.dialog.closeAll();
+          window.location.reload();
+          this.snackBar.open(message, action, { duration: 4000 });
+        });
+    } else {
+      this.snackBar.open(invalidFormMessage, action, { duration: 4000 });
     }
   }
 }

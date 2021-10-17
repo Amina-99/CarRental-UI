@@ -37,6 +37,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { AddCarComponent } from './components/add-car/add-car.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { LoginGuard } from './auth/login.guard';
+import { IncomeAnaycitsComponent } from './components/income-anaycits/income-anaycits.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { LoginGuard } from './auth/login.guard';
     EditCarComponent,
     NavComponent,
     AddCarComponent,
+   IncomeAnaycitsComponent,
     PageNotFoundComponent,
   ],
   imports: [

@@ -47,6 +47,6 @@ export class CarsComponent implements OnInit {
   }
 
   addCar() {
-    this.dialog.open(AddCarComponent);
+    this.dialog.open(AddCarComponent); 
   }
 }
